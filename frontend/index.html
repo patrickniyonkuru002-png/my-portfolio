@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.jpg  " />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- PRIMARY SEO -->
+    <title>Patrick NIYONKURU</title>
+    <meta name="description" content="Portfolio of Patrick NIYONKURU, a passionate Embedded System Designer and Full-Stack Developer based in Rwanda. Explore my projects, skills, and experience." />
+    <meta name="keywords" content="Patrick NIYONKURU, NIYONKURU Patrick, Embedded System Designer, Full-Stack Developer, React Developer, Python Developer, Rwanda Developer" />
+    <meta name="author" content="Patrick NIYONKURU" />
+
+    <!-- OPEN GRAPH (For LinkedIn/WhatsApp sharing) -->
+    <meta property="og:title" content="Patrick NIYONKURU | Portfolio" />
+    <meta property="og:description" content="Embedded System Designer & Full-Stack Developer" />
+    <meta property="og:type" content="website" />
+    
+    <!-- STRUCTURED DATA FOR GOOGLE SEARCH -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Patrick NIYONKURU",
+      "jobTitle": "Embedded System Designer & Full-Stack Developer",
+      "url": "https://patrick-portfolio.vercel.app",
+      "sameAs": [
+        "https://github.com/patrickniyonkuru002-png",
+        "https://www.instagram.com/n.p___002/",
+        "https://x.com/home"
+      ]
+    }
+    </script>
+
+    <!-- Theme Script -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
