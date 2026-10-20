@@ -16,7 +16,12 @@ app = FastAPI(title="Portfolio API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=[
+        "http://localhost:5173", 
+        "http://127.0.0.1:5173",
+        "https://patrick-portfolio.vercel.app", # Your future Vercel link
+        "*" # Allow all for now, we can tighten this later
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
