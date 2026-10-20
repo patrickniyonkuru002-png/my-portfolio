@@ -9,15 +9,22 @@ db_url = settings.DATABASE_URL
 if "?ssl-mode=REQUIRED" in db_url:
     db_url = db_url.replace("?ssl-mode=REQUIRED", "")
 
-# If the CA_CERT is provided (which it is on Render), configure the SSL context
+# Set up SSL arguments
 ssl_args = {}
 ca_cert = os.getenv("CA_CERT")
+
 if ca_cert:
+    # Create an SSL context and pass the certificate TEXT directly
+    ssl_context = ssl.create_default_context()
+    ssl_context.check_hostname = False
+    ssl_context.verify_mode = ssl.CERT_REQUIRED
+    try:
+        ssl_context.load_verify_locations(cadata=ca_cert)
+    except Exception as e:
+        print(f"Warning: Could not load CA cert: {e}")
+
     ssl_args = {
-        "ssl": {
-            "ca": ca_cert,
-            "check_hostname": False  # Allows connection to Aiven without strict hostname verification
-        }
+        "ssl": ssl_context
     }
 
 engine = create_engine(
